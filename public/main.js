@@ -17,6 +17,7 @@ $(function() {
   var $chatPage = $('.chat.page'); // The chatroom page
 
   // Prompt for setting a username
+  var hello = "BONJOUR A TOUS";
   var username;
   var connected = false;
   var typing = false;
@@ -26,11 +27,11 @@ $(function() {
   var socket = io();
 
   const addParticipantsMessage = (data) => {
-    var message = '';
+    var message = "Bienvenue à tous ! Amusez vous bien !";
     if (data.numUsers === 1) {
-      message += "there's 1 participant";
+      message += " Vous êtes le seul sur le serveur :( ";
     } else {
-      message += "there are " + data.numUsers + " participants";
+      message += " Vous êtes " + data.numUsers + " sur le serveur en ce moment :) ";
     }
     log(message);
   }
@@ -229,7 +230,7 @@ $(function() {
   socket.on('login', (data) => {
     connected = true;
     // Display the welcome message
-    var message = "Welcome to Socket.IO Chat – ";
+    var message = "Tchat de ClemLaReine";
     log(message, {
       prepend: true
     });
